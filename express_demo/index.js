@@ -22,6 +22,7 @@ app.get("/api/courses", (req, res) => {
 app.post("/api/courses", (req, res) => {
   // if invalid, return 400 - bad request
   const { error } = validateCourse(req.body); // object destructuring
+  
   if (error) {
     res.status(400).send(error.details[0].message);
     return;
