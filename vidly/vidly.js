@@ -2,9 +2,9 @@ const express = require("express");
 const app = express();
 const Joi = require("joi");
 const movieArr = [
-  { id: 1, name: "Lost sea", genres: "Sci-Fi" },
-  { id: 2, name: "Happiness", genres: "Romance" },
-  { id: 3, name: "When tomorrow awakens", genres: "Horror" },
+  { id: 1, name: "Lost sea" },
+  { id: 2, name: "Happiness" },
+  { id: 3, name: "When tomorrow awakens" },
 ];
 
 app.use(express.json());
@@ -38,7 +38,6 @@ app.post("/vidly.com/api/genres", (req, res) => {
   const addMovie = {
     id: movieArr.length + 1,
     name: req.body.name,
-    genres: req.body.genres,
   };
 
   movieArr.push(addMovie);
@@ -67,7 +66,6 @@ app.put("/vidly.com/api/genres/:id", (req, res) => {
 
   // update movie
   movieToUpdate.name = req.body.name;
-  movieToUpdate.genres = req.body.name;
 
   // return updated movie
   res.send(movieToUpdate);
